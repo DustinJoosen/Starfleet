@@ -9,6 +9,11 @@ class Rank extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        "name",
+        "order"
+    ];
+
     public function officers(){
         return $this->hasMany(Officer::class);
     }

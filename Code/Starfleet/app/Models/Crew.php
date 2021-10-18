@@ -19,6 +19,10 @@ class Crew extends Model
         "chiefengineering_id"
     ];
 
+    public function starship(){
+        return $this->hasOne(Starship::class);
+    }
+
     public function captain(){
         return $this->belongsTo(Officer::class, 'captain_id');
     }

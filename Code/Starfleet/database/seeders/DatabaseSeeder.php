@@ -13,6 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call(DepartmentSeeder::class);
+        $this->call(RankSeeder::class);
+        $this->call(StarshipTypeSeeder::class);
+        $this->call(PlanetClassSeeder::class);
     }
 }

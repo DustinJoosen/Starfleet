@@ -72,8 +72,8 @@ class InitTables extends Migration
             $table->foreignId("rank_id");
             $table->foreignId("department_id");
             $table->dateTime("born_at");
-            $table->dateTime("deceased_at");
-            $table->string("assignment");
+            $table->dateTime("deceased_at")->nullable();
+            $table->string("assignment")->nullable();
             $table->timestamps();
 
             $table->foreign("user_id")->references("id")->on("users");
@@ -93,12 +93,12 @@ class InitTables extends Migration
             $table->foreignId("chiefengineering_id")->nullable()->unique();
             $table->timestamps();
 
-            $table->foreign("captain_id")->references("id")->on("users");
-            $table->foreign("firstofficer_id")->references("id")->on("users");
-            $table->foreign("secondofficer_id")->references("id")->on("users");
-            $table->foreign("chiefmedical_id")->references("id")->on("users");
-            $table->foreign("chiefsecurity_id")->references("id")->on("users");
-            $table->foreign("chiefengineering_id")->references("id")->on("users");
+            $table->foreign("captain_id")->references("id")->on("officers");
+            $table->foreign("firstofficer_id")->references("id")->on("officers");
+            $table->foreign("secondofficer_id")->references("id")->on("officers");
+            $table->foreign("chiefmedical_id")->references("id")->on("officers");
+            $table->foreign("chiefsecurity_id")->references("id")->on("officers");
+            $table->foreign("chiefengineering_id")->references("id")->on("officers");
         });
 
 
@@ -107,7 +107,8 @@ class InitTables extends Migration
             $table->foreignId("crew_id");
             $table->foreignId("starshiptype_id");
             $table->string("name");
-            $table->string("prefix")->nullable()->default("NCC");
+            $table->string("prefix")->nullable()->default("USS");
+            $table->string("registry");
             $table->boolean("is_active")->nullable()->default(true);
             $table->datetime("build_at");
             $table->datetime("destroyed_at")->nullable();

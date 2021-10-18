@@ -9,7 +9,19 @@ class Species extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        "name",
+        "is_humanoid",
+        "is_federation",
+        "abilities",
+        "notes"
+    ];
+
     public function officers(){
         return $this->hasMany(Officer::class);
+    }
+
+    public function planets(){
+        return $this->belongsToMany(Planet::class);
     }
 }
