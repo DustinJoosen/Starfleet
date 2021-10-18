@@ -33,7 +33,15 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li class="nav-item">
+                            <a href="/species" class="nav-link">Species</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/starships/types" class="nav-link">Starship Types</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/planets" class="nav-link">Planets</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

@@ -38,6 +38,11 @@ class Officer extends Model
         return $this->belongsTo(Rank::class);
     }
 
+    public function role(){
+        $rank = $this->rank;
+        return strtolower($rank->name);
+    }
+
     public function department(){
         return $this->belongsTo(Department::class);
     }
