@@ -37,6 +37,9 @@
                             <a href="/species" class="nav-link">Species</a>
                         </li>
                         <li class="nav-item">
+                            <a href="/officers" class="nav-link">Officers</a>
+                        </li>
+                        <li class="nav-item">
                             <a href="/starships/types" class="nav-link">Starship Types</a>
                         </li>
                         <li class="nav-item">

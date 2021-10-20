@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Hash;
 
 class Officer extends Model
 {
@@ -21,6 +22,25 @@ class Officer extends Model
         "deceased_at",
         "assignment"
     ];
+
+    protected static function boot(){
+        parent::boot();
+
+        static::created(function($officer){
+            $email = str_replace(' ', '', $officer->name) . '@' . $officer->department->name . '.starfleet.com';
+
+            $user = $officer->user()->create([
+                'name' => $officer->name,
+                'email' => strtolower($email),
+                'password' => Hash::make('Welcome123')
+            ]);
+
+            $officer->user_id = $user->id;
+            $officer->push();
+
+        });
+    }
+
 
     public function user(){
         return $this->belongsTo(User::class);
