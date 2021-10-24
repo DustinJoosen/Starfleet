@@ -60,3 +60,13 @@ Route::prefix('/officers')->group(function(){
     Route::put('/{officer}/update', [App\Http\Controllers\OfficersController::class, 'update']);
     Route::get("/{officer}/delete", [App\Http\Controllers\OfficersController::class, 'delete']);
 });
+
+Route::prefix('/starships')->group(function(){
+    Route::get('/', [App\Http\Controllers\StarshipsController::class, 'index']);
+    Route::get('/create', [App\Http\Controllers\StarshipsController::class, 'create']);
+    Route::post('/store', [App\Http\Controllers\StarshipsController::class, 'store']);
+    Route::get('/{starship}/details', [App\Http\Controllers\StarshipsController::class, 'details']);
+    Route::get('/{starship}/edit', [App\Http\Controllers\StarshipsController::class, 'edit']);
+    Route::put('/{starship}/update', [App\Http\Controllers\StarshipsController::class, 'update']);
+    Route::get("/{starship}/delete", [App\Http\Controllers\StarshipsController::class, 'delete']);
+});
