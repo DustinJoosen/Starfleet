@@ -27,7 +27,15 @@ class SpeciesController extends Controller
 			'notes' => 'required',
 		]);
 
-        Species::create($data);
+		$species = array_merge(
+		    $data,
+            [
+                "is_humanoid" => isset($data["is_humanoid"]),
+                "is_federation" => isset($data["is_federation"])
+            ]
+        );
+
+        Species::create($species);
         return redirect('/species');
     }
 
@@ -47,8 +55,8 @@ class SpeciesController extends Controller
 		]);
 
 		$species->name = $data["name"];
-		$species->is_humanoid = $data["is_humanoid"];
-		$species->is_federation = $data["is_federation"];
+		$species->is_humanoid = isset($data["is_humanoid"]);
+		$species->is_federation = isset($data["is_federation"]);
 		$species->abilities = $data["abilities"];
 		$species->notes = $data["notes"];
 

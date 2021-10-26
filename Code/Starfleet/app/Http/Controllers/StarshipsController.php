@@ -42,6 +42,10 @@ class StarshipsController extends Controller
             'chiefmedical_id' => ''
 		]);
 
+		$ship = array_merge(
+		    $data,
+            ["is_active" => isset($data["is_active"])]
+        );
 
 		$crew = Crew::create([
 		    'captain_id' => $data["captain_id"],
@@ -52,7 +56,7 @@ class StarshipsController extends Controller
 		    'chiefmedical_id' => $data["chiefmedical_id"] ?? null,
         ]);
 
-		$crew->starship()->create($data);
+		$crew->starship()->create($ship);
 
         return redirect('/starships');
     }
@@ -87,7 +91,7 @@ class StarshipsController extends Controller
 		$starship->name = $data["name"];
 		$starship->prefix = $data["prefix"];
 		$starship->registry = $data["registry"];
-		$starship->is_active = $data["is_active"] ?? 1;
+		$starship->is_active = isset($data["is_active"]);
 		$starship->build_at = $data["build_at"];
 		$starship->destroyed_at = $data["destroyed_at"];
 		$starship->status = $data["status"];

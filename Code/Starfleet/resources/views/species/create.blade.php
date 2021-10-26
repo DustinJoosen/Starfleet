@@ -27,29 +27,23 @@
 					<div class="form-group row mt-3">
 						<label for="is_humanoid" class="col-md-4 col-form-label text-md-right">Is humanoid</label>
 
-						<div class="col-md-4">
-							<input type="text" id="is_humanoid" name="is_humanoid" class="form-control @error('is_humanoid') is-invalid @enderror" value="{{ old('is_humanoid') }}" autofocus>
-
-							@error("is_humanoid")
-								<span class="invalid-feedback" role="alert">
-									<strong>{{ $message }}</strong>
-								</span>
-							@enderror
-						</div>
+                        <div class="col-md-4">
+                            <label class="switch">
+                                <input type="checkbox" name="is_humanoid">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
 					</div>
 
 					<div class="form-group row mt-3">
 						<label for="is_federation" class="col-md-4 col-form-label text-md-right">Is federation</label>
 
-						<div class="col-md-4">
-							<input type="text" id="is_federation" name="is_federation" class="form-control @error('is_federation') is-invalid @enderror" value="{{ old('is_federation') }}" autofocus>
-
-							@error("is_federation")
-								<span class="invalid-feedback" role="alert">
-									<strong>{{ $message }}</strong>
-								</span>
-							@enderror
-						</div>
+                        <div class="col-md-4">
+                            <label class="switch">
+                                <input type="checkbox" name="is_federation">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
 					</div>
 
 					<div class="form-group row mt-3">

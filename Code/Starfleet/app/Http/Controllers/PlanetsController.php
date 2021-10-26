@@ -30,6 +30,11 @@ class PlanetsController extends Controller
 			'has_life' => '',
 		]);
 
+		$data = array_merge(
+		    $data,
+            ["has_life" => isset($data["has_life"])]
+        );
+
         Planet::create($data);
         return redirect('/planets');
     }
@@ -55,7 +60,7 @@ class PlanetsController extends Controller
 		$planet->name = $data["name"];
 		$planet->sector = $data["sector"];
 		$planet->quadrant = $data["quadrant"];
-		$planet->has_life = $data["has_life"];
+        $planet->has_life = isset($data["has_life"]);
 
         $planet->push();
         return redirect('/planets');

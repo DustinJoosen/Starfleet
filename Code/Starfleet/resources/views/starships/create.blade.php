@@ -71,13 +71,10 @@
                         <label for="is_active" class="col-md-4 col-form-label text-md-right">Is Active</label>
 
                         <div class="col-md-4">
-                            <input type="checkbox" id="is_active" name="is_active" class=" @error('is_active') is-invalid @enderror" value="{{ old('is_active') }}" autofocus>
-
-                            @error("is_active")
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                            <label class="switch">
+                                <input type="checkbox" name="is_active">
+                                <span class="slider round"></span>
+                            </label>
                         </div>
                     </div>
 

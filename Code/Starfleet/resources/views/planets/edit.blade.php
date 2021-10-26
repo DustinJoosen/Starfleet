@@ -70,12 +70,12 @@
                     </div>
 
                     <div class="form-group row mt-3">
-                        <label for="has_life" class="col-md-4 col-form-label text-md-right">Has Life</label>
+                        <label for="has_life" class="col-md-4 col-form-label text-md-right">Has life</label>
                         <div class="col-md-4">
-                            <select id="has_life" name="has_life" class="custom-select">
-                                <option value="0">No</option>
-                                <option value="1">Yes</option>
-                            </select>
+                            <label class="switch">
+                                <input type="checkbox" name="has_life" @if($planet->has_life) checked @endif>
+                                <span class="slider round"></span>
+                            </label>
                         </div>
                     </div>
 
