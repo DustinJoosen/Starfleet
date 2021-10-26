@@ -129,9 +129,9 @@
                     <h4>Senior staff</h4>
 
                     <div class="form-group row mt-3">
-                        <label for="starshiptype_id" class="col-md-4 col-form-label text-md-right">Captain</label>
+                        <label for="captain_id" class="col-md-4 col-form-label text-md-right">Captain</label>
                         <div class="col-md-4">
-                            <select id="starshiptype_id" name="starshiptype_id" class="custom-select">
+                            <select id="captain_id" name="captain_id" class="custom-select">
                                 <option disabled selected value>Choose officer</option>
                                 @foreach($officers as $officer)
                                     <option value="{{ $officer->id }}">{{ $officer->name }}</option>
@@ -141,9 +141,9 @@
                     </div>
 
                     <div class="form-group row mt-3">
-                        <label for="starshiptype_id" class="col-md-4 col-form-label text-md-right">First Officer</label>
+                        <label for="firstofficer_id" class="col-md-4 col-form-label text-md-right">First Officer</label>
                         <div class="col-md-4">
-                            <select id="starshiptype_id" name="starshiptype_id" class="custom-select">
+                            <select id="firstofficer_id" name="firstofficer_id" class="custom-select">
                                 <option disabled selected value>Choose officer</option>
                                 @foreach($officers as $officer)
                                     <option value="{{ $officer->id }}">{{ $officer->name }}</option>
@@ -153,9 +153,9 @@
                     </div>
 
                     <div class="form-group row mt-3">
-                        <label for="starshiptype_id" class="col-md-4 col-form-label text-md-right">Second Officer</label>
+                        <label for="secondofficer_id" class="col-md-4 col-form-label text-md-right">Second Officer</label>
                         <div class="col-md-4">
-                            <select id="starshiptype_id" name="starshiptype_id" class="custom-select">
+                            <select id="secondofficer_id" name="secondofficer_id" class="custom-select">
                                 <option disabled selected value>Choose officer</option>
                                 @foreach($officers as $officer)
                                     <option value="{{ $officer->id }}">{{ $officer->name }}</option>
@@ -165,9 +165,9 @@
                     </div>
 
                     <div class="form-group row mt-3">
-                        <label for="starshiptype_id" class="col-md-4 col-form-label text-md-right">Chief Engineer</label>
+                        <label for="chiefengineering_id " class="col-md-4 col-form-label text-md-right">Chief Engineer</label>
                         <div class="col-md-4">
-                            <select id="starshiptype_id" name="starshiptype_id" class="custom-select">
+                            <select id="chiefengineering_id" name="chiefengineering_id" class="custom-select">
                                 <option disabled selected value>Choose officer</option>
                                 @foreach($officers as $officer)
                                     <option value="{{ $officer->id }}">{{ $officer->name }}</option>
@@ -177,9 +177,9 @@
                     </div>
 
                     <div class="form-group row mt-3">
-                        <label for="starshiptype_id" class="col-md-4 col-form-label text-md-right">Chief Security</label>
+                        <label for="chiefsecurity_id" class="col-md-4 col-form-label text-md-right">Chief Security</label>
                         <div class="col-md-4">
-                            <select id="starshiptype_id" name="starshiptype_id" class="custom-select">
+                            <select id="chiefsecurity_id" name="chiefsecurity_id" class="custom-select">
                                 <option disabled selected value>Choose officer</option>
                                 @foreach($officers as $officer)
                                     <option value="{{ $officer->id }}">{{ $officer->name }}</option>
@@ -189,9 +189,9 @@
                     </div>
 
                     <div class="form-group row mt-3">
-                        <label for="starshiptype_id" class="col-md-4 col-form-label text-md-right">Chief Medical</label>
+                        <label for="chiefmedical_id" class="col-md-4 col-form-label text-md-right">Chief Medical</label>
                         <div class="col-md-4">
-                            <select id="starshiptype_id" name="starshiptype_id" class="custom-select">
+                            <select id="chiefmedical_id" name="chiefmedical_id" class="custom-select">
                                 <option disabled selected value>Choose officer</option>
                                 @foreach($officers as $officer)
                                     <option value="{{ $officer->id }}">{{ $officer->name }}</option>

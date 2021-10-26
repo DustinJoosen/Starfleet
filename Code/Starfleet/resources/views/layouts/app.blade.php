@@ -46,9 +46,6 @@
                         <li class="nav-item">
                             <a href="/starships" class="nav-link">Starships</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="/starships/types" class="nav-link">Starship Types</a>
-                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

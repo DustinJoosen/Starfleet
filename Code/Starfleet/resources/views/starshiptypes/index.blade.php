@@ -3,7 +3,8 @@
 @section('content')
     <div class="container">
         <h3>Starship Types</h3>
-        <a href="/starships/types/create">Add starship type</a>
+        <a href="/starships/types/create">Add starship type</a> |
+        <a href="/starships">Manage starships</a>
 
         <table class="table mt-4">
             <tr>
@@ -24,6 +25,7 @@
                 </tr>
             @endforeach
         </table>
+
 
     </div>
 @endsection

@@ -3,7 +3,8 @@
 @section('content')
     <div class="container">
         <h3>Starships</h3>
-        <a href="/starships/create">Add starship</a>
+        <a href="/starships/create">Add starship</a> |
+        <a href="/starships/types/">Manage starship types</a>
 
         <table class="table mt-4">
             <tr>
