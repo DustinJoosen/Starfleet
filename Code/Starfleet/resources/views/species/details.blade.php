@@ -14,14 +14,27 @@
 			<dt class="col-sm-2">Is federation</dt>
 			<dd class='col-sm-10'>{{ $species->is_federation == 0 ? "No" : "Yes" }}</dd>
 
-			<dt class="col-sm-2">Abilities</dt>
-			<dd class='col-sm-10'>{{ $species->abilities }}</dd>
+            @if($species->abilities != null)
+		    	<dt class="col-sm-2">Abilities</dt>
+			    <dd class='col-sm-10'>{{ $species->abilities }}</dd>
+            @endif
 
 			<dt class="col-sm-2">Notes</dt>
 			<dd class='col-sm-10'>{{ $species->notes }}</dd>
-
-
         </dl>
+
+        @if($species->planets->count() > 0)
+            <h5 class="mt-5">Planets</h5>
+            <div class="col-3">
+                <table class="table">
+                    @foreach($species->planets as $planet)
+                        <tr>
+                            <td>{{ $planet->name }}</td>
+                        </tr>
+                    @endforeach
+                </table>
+            </div>
+        @endif
 
         <a href="/species">Back</a>
 

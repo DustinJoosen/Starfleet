@@ -2,20 +2,19 @@
 
 @section("content")
     <div class="container">
-        <h3>Planets of species [{{ $species->name }}]</h3>
+        <h3>Species of planet [{{ $planet->name }}]</h3>
 
         <div class="d-flex mt-5">
             <div class="col-6">
-                <h5>Add Planet</h5>
-                <form method="post" action="/species/{{ $species->id }}/planets/store">
+                <h5>Add Species</h5>
+                <form method="post" action="/planets/{{ $planet->id }}/species/store">
                     @csrf
 
-
                     <div class="input-group">
-                        <select name="planet_id" class="custom-select col-6">
+                        <select name="species_id" class="custom-select col-6">
                             <option disabled selected value>Select planet</option>
-                            @foreach($planets as $planet)
-                                <option value="{{ $planet->id }}">{{ $planet->name }}</option>
+                            @foreach($species as $species_)
+                                <option value="{{ $species_->id }}">{{ $species_->name }}</option>
                             @endforeach
                         </select>
                         <div class="input-group-append">
@@ -27,18 +26,19 @@
             </div>
             <div class="col-6">
                 <table class="table">
-                    @foreach($species->planets as $planet)
+                    @foreach($planet->species as $species)
                         <tr>
-                            <td>{{ $planet->name }}</td>
+                            <td>{{ $species->name }}</td>
                             <td>
-                                <a href="/species/{{ $species->id }}/planets/{{ $planet->id }}/remove" class="btn btn-outline-danger">x</a>
+                                <a href="/planets/{{ $planet->id }}/species/{{ $species->id }}/remove" class="btn btn-outline-danger">x</a>
                             </td>
                         </tr>
                     @endforeach
                 </table>
             </div>
         </div>
-        <a href="/species" class="mt-3">Back to List</a>
+        <a href="/planets" class="mt-3">Back to List</a>
+
 
     </div>
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Planet;
 use App\Models\PlanetClass;
+use App\Models\Species;
 use Illuminate\Http\Request;
 
 class PlanetsController extends Controller
@@ -13,6 +14,36 @@ class PlanetsController extends Controller
         return view('planets.index',[
             'planets' => Planet::all()
         ]);
+    }
+
+
+    public function species(Planet $planet){
+        $species = Species::all();
+        $filtered_species = [];
+
+        foreach($species as $species_){
+            if(!$planet->species->contains('id', $species_->id)){
+                array_push($filtered_species, $species_);
+            }
+        }
+
+        return view('planets.species',[
+            'planet' => $planet,
+            'species' => $filtered_species
+        ]);
+    }
+
+    public function store_species(Request $request, Planet $planet){
+        $species_id = $request->input('species_id') ?? null;
+        $species = Species::findOrFail($species_id);
+
+        $planet->species()->save($species);
+        return redirect('/planets/' . $planet->id . '/species');
+    }
+
+    public function delete_species(Planet $planet, Species $species){
+        $planet->species()->detach($species);
+        return redirect('/planets/' . $planet->id . '/species');
     }
 
     public function create(){
