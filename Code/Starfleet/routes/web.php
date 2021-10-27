@@ -43,6 +43,9 @@ Route::prefix('/starships/types')->group(function(){
 
 Route::prefix('/species')->group(function(){
     Route::get('/', [App\Http\Controllers\SpeciesController::class, 'index']);
+    Route::get('/{species}/planets', [App\Http\Controllers\SpeciesController::class, 'planets']);
+    Route::post('/{species}/planets/store', [App\Http\Controllers\SpeciesController::class, 'store_planet']);
+    Route::get('/{species}/planets/{planet}/remove', [App\Http\Controllers\SpeciesController::class, 'delete_planet']);
     Route::get('/create', [App\Http\Controllers\SpeciesController::class, 'create']);
     Route::post('/store', [App\Http\Controllers\SpeciesController::class, 'store']);
     Route::get('/{species}/details', [App\Http\Controllers\SpeciesController::class, 'details']);

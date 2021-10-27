@@ -20,6 +20,7 @@
 
                     <td>
                         <a href="/species/{{ $species->id }}/edit">Edit</a> |
+                        <a href="/species/{{ $species->id }}/planets">Planets</a> |
                         <a href="/species/{{ $species->id }}/details">Details</a> |
                         <a href="/species/{{ $species->id }}/delete">Delete</a>
                     </td>
