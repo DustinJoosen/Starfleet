@@ -37,7 +37,7 @@ class StarshipsController extends Controller
             'captain_id' => 'required',
             'firstofficer_id' => '',
             'secondofficer_id' => '',
-            'chiefengineer_id' => '',
+            'chiefengineering_id' => '',
             'chiefsecurity_id' => '',
             'chiefmedical_id' => ''
 		]);
@@ -51,7 +51,7 @@ class StarshipsController extends Controller
 		    'captain_id' => $data["captain_id"],
 		    'firstofficer_id' => $data["firstofficer_id"] ?? null,
 		    'secondofficer_id' => $data["secondofficer_id"] ?? null,
-		    'chiefengineer_id' => $data["chiefengineer_id"] ?? null,
+		    'chiefengineering_id' => $data["chiefengineering_id"] ?? null,
 		    'chiefsecurity_id' => $data["chiefsecurity_id"] ?? null,
 		    'chiefmedical_id' => $data["chiefmedical_id"] ?? null,
         ]);

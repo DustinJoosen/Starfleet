@@ -167,7 +167,7 @@
                             <select id="chiefengineering_id" name="chiefengineering_id" class="custom-select">
                                 <option selected value>No officer</option>
                                 @foreach($officers as $officer)
-                                    <option value="{{ $officer->id }}" @if($starship->crew->chiefengineering_id == $officer->id) selected @endif>{{ $officer->name }}</option>
+                                    <option value="{{ $officer->id }}">{{ $officer->name }}</option>
                                 @endforeach
                             </select>
                         </div>
