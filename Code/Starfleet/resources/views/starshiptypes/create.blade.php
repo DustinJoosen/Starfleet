@@ -7,7 +7,7 @@
                 <h3 class="text-center">Create Starship Type</h3>
             </div>
             <div class="card-body">
-                <form action="/starships/types/store" method="post">
+                <form action="/starships/types/store" method="post" enctype="multipart/form-data">
                     @csrf
 
 					<div class="form-group row mt-3">
@@ -24,19 +24,17 @@
 						</div>
 					</div>
 
-					<div class="form-group row mt-3">
-						<label for="image_name" class="col-md-4 col-form-label text-md-right">Image</label>
+                    <div class="form-group row">
+                        <label for="image_name" class="col-md-4 col-form-label text-md-right">Image</label>
+                        <div class="col-md-4">
+                            <input type="file" class="form-control-file" id="image_name" name="image_name" />
 
-						<div class="col-md-4">
-							<input type="text" id="image_name" name="image_name" class="form-control @error('image_name') is-invalid @enderror" value="{{ old('image_name') }}" autofocus>
+                            @error('image_name')
+                                <strong>{{ $message  }}</strong>
+                            @enderror
+                        </div>
+                    </div>
 
-							@error("image_name")
-								<span class="invalid-feedback" role="alert">
-									<strong>{{ $message }}</strong>
-								</span>
-							@enderror
-						</div>
-					</div>
 
 
                     <div class="form-group row mb-0">

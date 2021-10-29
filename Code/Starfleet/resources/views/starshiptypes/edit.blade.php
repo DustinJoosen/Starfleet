@@ -7,7 +7,7 @@
                 <h3 class="text-center">Edit Starship Type [{{$starshiptype->name}}]</h3>
             </div>
             <div class="card-body">
-                <form action="/starships/types/{{ $starshiptype->id }}/update" method="post">
+                <form action="/starships/types/{{ $starshiptype->id }}/update" method="post" enctype="multipart/form-data">
                     @csrf
                     @method("PUT")
 
@@ -25,16 +25,13 @@
                         </div>
                     </div>
 
-                    <div class="form-group row mt-3">
+                    <div class="form-group row">
                         <label for="image_name" class="col-md-4 col-form-label text-md-right">Image</label>
-
                         <div class="col-md-4">
-                            <input type="text" id="image_name" name="image_name" class="form-control @error('image_name') is-invalid @enderror" value="{{ old('image_name') ?? $starshiptype->image_name }}" autofocus>
+                            <input type="file" class="form-control-file" id="image_name" name="image_name" />
 
-                            @error("image_name")
-                            <span class="invalid-feedback" role="alert">
-									<strong>{{ $message }}</strong>
-								</span>
+                            @error('image_name')
+                            <strong>{{ $message  }}</strong>
                             @enderror
                         </div>
                     </div>

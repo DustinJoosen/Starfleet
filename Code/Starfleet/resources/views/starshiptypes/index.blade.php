@@ -8,14 +8,14 @@
 
         <table class="table mt-4">
             <tr>
-				<th>Name</th>
-				<th>Image</th>
+                <th>Image</th>
+                <th>Name</th>
 				<th></th>
             </tr>
  			@foreach($starshiptypes as $starshiptype)
                 <tr>
-					<td>{{ $starshiptype->name }}</td>
-					<td>{{ $starshiptype->image_name }}</td>
+                    <td><img src="{{ $starshiptype->get_image_url() }}" width="120" height="120"/></td>
+                    <td>{{ $starshiptype->name }}</td>
 
                     <td>
                         <a href="/starships/types/{{ $starshiptype->id }}/edit">Edit</a> |

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\StarshipType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class StarshipTypesController extends Controller
 {
@@ -21,10 +22,24 @@ class StarshipTypesController extends Controller
     public function store(Request $request){
 		$data = $request->validate([
 			'name' => 'required',
-			'image_name' => '',
+			'image_name' => ['image'],
 		]);
 
-        StarshipType::create($data);
+		if(isset($data["image_name"])){
+    		//store the image and get the name
+	    	$image_fp = $data["image_name"]->store('uploads', 'public');
+
+	    	$data = array_merge(
+	    	    $data,
+                ["image_name" => $image_fp]
+            );
+        }
+
+        StarshipType::create([
+            "name" => $data["name"],
+            "image_name" => $data["image_name"] ?? "notfound.png"
+        ]);
+
         return redirect('/starships/types');
     }
 
@@ -37,13 +52,22 @@ class StarshipTypesController extends Controller
     public function update(Request $request, StarshipType $starshiptype){
 		$data = $request->validate([
 			'name' => 'required',
-			'image_name' => 'required',
+			'image_name' => ['image'],
 		]);
 
-		$starshiptype->name = $data["name"];
-		$starshiptype->image_name = $data["image_name"];
+        if(isset($data["image_name"])){
+            $starshiptype->delete_image();
 
+            //store the image and set the name
+            $image_fp = $data["image_name"]->store('uploads', 'public');
+            $starshiptype->image_name = $image_fp ?? "notfound.png";
+
+        }
+
+
+        $starshiptype->name = $data["name"];
         $starshiptype->push();
+
         return redirect('/starships/types');
     }
 
@@ -54,6 +78,7 @@ class StarshipTypesController extends Controller
     }
 
     public function delete(Request $request, StarshipType $starshiptype){
+        $starshiptype->delete_image();
         $starshiptype->delete();
         return redirect('/starships/types');
     }
