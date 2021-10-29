@@ -9,7 +9,9 @@
 			<dd class='col-sm-10'>{{ $starshiptype->name }}</dd>
 
 			<dt class="col-sm-2">Image</dt>
-			<dd class='col-sm-10'>{{ $starshiptype->image_name }}</dd>
+            <dd class="col-sm-10">
+                <img src="{{ $starshiptype->get_image_url() }}" alt="starship class image" height="200">
+            </dd>
 
 
         </dl>

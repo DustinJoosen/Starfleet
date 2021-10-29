@@ -19,7 +19,7 @@
                 <tr>
 					<td>{{ $starship->name }}</td>
                     <td>{{ $starship->prefix }} {{ $starship->registry }}</td>
-                    <td>{{ $starship->starship_type->name }}</td>
+                    <td><a href="/starships/types/{{ $starship->starship_type->id }}/details">{{ $starship->starship_type->name }}</a></td>
                     <td>{{ $starship->is_active == 0 ? "No" : "Yes" }}</td>
 					<td>{{ $starship->status }}</td>
 

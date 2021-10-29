@@ -25,10 +25,13 @@
                 </form>
             </div>
             <div class="col-6">
+                <h5>Species</h5>
                 <table class="table">
                     @foreach($planet->species as $species)
                         <tr>
-                            <td>{{ $species->name }}</td>
+                            <td>
+                                <a href="/species/{{ $species->id }}/details">{{ $species->name }}</a>
+                            </td>
                             <td>
                                 <a href="/planets/{{ $planet->id }}/species/{{ $species->id }}/remove" class="btn btn-outline-danger">x</a>
                             </td>

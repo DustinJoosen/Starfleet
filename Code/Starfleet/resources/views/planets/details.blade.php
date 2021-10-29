@@ -11,8 +11,10 @@
 			<dt class="col-sm-2">Name</dt>
 			<dd class='col-sm-10'>{{ $planet->name }}</dd>
 
+            @if($planet->sector != null)
 			<dt class="col-sm-2">Sector</dt>
 			<dd class='col-sm-10'>{{ $planet->sector }}</dd>
+            @endif
 
 			<dt class="col-sm-2">Quadrant</dt>
 			<dd class='col-sm-10'>{{ $planet->quadrant }}</dd>
@@ -27,7 +29,9 @@
                 <table class="table">
                     @foreach($planet->species as $species)
                         <tr>
-                            <td>{{ $species->name }}</td>
+                            <td>
+                                <a href="/species/{{ $species->id }}/details">{{ $species->name }}</a>
+                            </td>
                         </tr>
                     @endforeach
                 </table>

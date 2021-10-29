@@ -9,11 +9,15 @@
 			<dd class='col-sm-10'>{{ $officer->name }}</dd>
 
 			<dt class="col-sm-2">Species</dt>
-			<dd class='col-sm-10'>{{ $officer->species->name }}</dd>
+			<dd class='col-sm-10'>
+                <a href="/species/{{ $officer->species->id }}/details">{{ $officer->species->name }}</a>
+            </dd>
 
             @if($officer->homeworld_id != null)
 		    	<dt class="col-sm-2">Homeworld</dt>
-			    <dd class='col-sm-10'>{{ $officer->homeworld->name }}</dd>
+			    <dd class='col-sm-10'>
+                    <a href="/planets/{{ $officer->homeworld->id ?? '' }}/details">{{ $officer->homeworld->name ?? '' }}</a>
+                </dd>
             @endif
 
 			<dt class="col-sm-2">Rank</dt>

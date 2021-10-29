@@ -14,7 +14,7 @@
             </tr>
  			@foreach($starshiptypes as $starshiptype)
                 <tr>
-                    <td><img src="{{ $starshiptype->get_image_url() }}" width="120" height="120"/></td>
+                    <td><img src="{{ $starshiptype->get_image_url() }}" height="120"/></td>
                     <td>{{ $starshiptype->name }}</td>
 
                     <td>

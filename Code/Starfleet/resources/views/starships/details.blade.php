@@ -9,7 +9,9 @@
                 <h5>Ship specs</h5>
                 <dl class="row mt-3">
                     <dt class="col-sm-4">Starship Type</dt>
-                    <dd class='col-sm-8'>{{ $starship->starship_type->name }}</dd>
+                    <dd class='col-sm-8'>
+                        <a href="/starships/types/{{ $starship->starship_type->id }}/details">{{ $starship->starship_type->name }}</a>
+                    </dd>
 
                     <dt class="col-sm-4">Name</dt>
                     <dd class='col-sm-8'>{{ $starship->name }}</dd>
@@ -37,31 +39,41 @@
 
                 <dl class="row mt-3">
                     <dt class="col-sm-4">Captain</dt>
-                    <dd class="col-sm-8">{{ $starship->crew->captain->name }}</dd>
+                    <dd class="col-sm-8">
+                        <a href="/officers/{{ $starship->crew->captain->id }}/details">{{ $starship->crew->captain->name }}</a>
+                    </dd>
 
                     @if($starship->crew->first_officer->name ?? false)
                     <dt class="col-sm-4">First Officer</dt>
-                    <dd class="col-sm-8">{{ $starship->crew->first_officer->name }}</dd>
+                    <dd class="col-sm-8">
+                        <a href="/officers/{{ $starship->crew->first_officer->id }}/details">{{ $starship->crew->first_officer->name }}</a>
+                    </dd>
                     @endif
 
                     @if($starship->crew->second_officer->name ?? false)
                     <dt class="col-sm-4">Second Officer</dt>
-                    <dd class="col-sm-8">{{ $starship->crew->second_officer->name }}</dd>
+                    <dd class="col-sm-8">
+                        <a href="/officers/{{ $starship->crew->second_officer->id }}/details">{{ $starship->crew->second_officer->name }}</a>
+                    </dd>
                     @endif
 
                     @if($starship->crew->chief_engineering->name ?? false)
                     <dt class="col-sm-4">Chief Engineer</dt>
-                    <dd class="col-sm-8">{{ $starship->crew->chief_engineering->name }}</dd>
+                    <dd class="col-sm-8">
+                        <a href="/officers/{{ $starship->crew->chief_engineering->id }}/details">{{ $starship->crew->chief_engineering->name }}</a>
+                    </dd>
                     @endif
 
                     @if($starship->crew->chief_medical->name ?? false)
                     <dt class="col-sm-4">Chief Medical</dt>
-                    <dd class="col-sm-8">{{ $starship->crew->chief_medical->name }}</dd>
+                    <dd class="col-sm-8">
+                        <a href="/officers/{{ $starship->crew->chief_medical->id }}/details">{{ $starship->crew->chief_medical->name }}</a>
+                    </dd>
                     @endif
 
                     @if($starship->crew->chief_security->name ?? false)
                     <dt class="col-sm-4">Chief Security</dt>
-                    <dd class="col-sm-8">{{ $starship->crew->chief_security->name }}</dd>
+                        <dd class="col-sm-8"><a href="/officers/{{ $starship->crew->chief_security->id }}/details">{{ $starship->crew->chief_security->name }}</a></dd>
                     @endif
 
                 </dl>

@@ -29,7 +29,9 @@
                 <table class="table">
                     @foreach($species->planets as $planet)
                         <tr>
-                            <td>{{ $planet->name }}</td>
+                            <td>
+                                <a href="/planets/{{ $planet->id }}/details">{{ $planet->name }}</a>
+                            </td>
                         </tr>
                     @endforeach
                 </table>

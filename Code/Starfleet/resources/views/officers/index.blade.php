@@ -17,8 +17,8 @@
  			@foreach($officers as $officer)
                 <tr>
 					<td>{{ $officer->name }}</td>
-					<td>{{ $officer->species->name }}</td>
-					<td>{{ $officer->homeworld->name ?? '' }}</td>
+					<td><a href="/species/{{ $officer->species->id }}/details">{{ $officer->species->name }}</a></td>
+					<td><a href="/planets/{{ $officer->homeworld->id ?? '' }}/details">{{ $officer->homeworld->name ?? '' }}</a></td>
 					<td>{{ $officer->rank->name }}</td>
 					<td>{{ $officer->department->name }}</td>
 
