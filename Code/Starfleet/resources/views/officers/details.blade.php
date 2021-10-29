@@ -37,7 +37,8 @@
 
         </dl>
 
-        <a href="/officers">Back</a>
+        <a href="/officers">Back</a> |
+        <a href="/officers/{{ $officer->id }}/edit">Edit</a>
 
     </div>
 @endsection

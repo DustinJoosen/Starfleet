@@ -37,7 +37,7 @@
                 </table>
             </div>
         </div>
-        <a href="/planets" class="mt-3">Back to List</a>
+        <a href="/planets" class="mt-3">Back</a>
 
 
     </div>

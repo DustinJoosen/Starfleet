@@ -34,7 +34,8 @@
             </div>
         @endif
 
-        <a href="/planets">Back</a>
+        <a href="/planets">Back</a> |
+        <a href="/planets/{{ $planet->id }}/edit">Edit</a>
 
     </div>
 @endsection

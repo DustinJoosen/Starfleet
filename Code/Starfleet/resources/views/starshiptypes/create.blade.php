@@ -4,7 +4,7 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <h3 class="text-center">Add Starship Type</h3>
+                <h3 class="text-center">Create Starship Type</h3>
             </div>
             <div class="card-body">
                 <form action="/starships/types/store" method="post">

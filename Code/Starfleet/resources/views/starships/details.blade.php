@@ -69,7 +69,8 @@
         </div>
 
 
-        <a href="/starships">Back</a>
+        <a href="/starships">Back</a> |
+        <a href="/starships/{{ $starship->id }}/edit">Edit</a>
 
     </div>
 @endsection

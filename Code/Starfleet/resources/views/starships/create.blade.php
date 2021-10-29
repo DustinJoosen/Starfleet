@@ -4,7 +4,7 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <h3 class="text-center">Add Starship</h3>
+                <h3 class="text-center">Create Starship</h3>
             </div>
             <div class="card-body">
                 <form action="/starships/store" method="post">
@@ -162,12 +162,12 @@
                     </div>
 
                     <div class="form-group row mt-3">
-                        <label for="chiefengineering_id " class="col-md-4 col-form-label text-md-right">Chief Engineer</label>
+                        <label for="chiefengineering_id" class="col-md-4 col-form-label text-md-right">Chief Engineer</label>
                         <div class="col-md-4">
                             <select id="chiefengineering_id" name="chiefengineering_id" class="custom-select">
-                                <option disabled selected value>Choose officer</option>
+                                <option selected value>No officer</option>
                                 @foreach($officers as $officer)
-                                    <option value="{{ $officer->id }}">{{ $officer->name }}</option>
+                                    <option value="{{ $officer->id }}" @if($starship->crew->chiefengineering_id == $officer->id) selected @endif>{{ $officer->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -201,7 +201,7 @@
 
                     <div class="form-group row mb-0">
                         <div class="col-md-8 offset-md-4">
-                            <button type="submit" class="btn btn-outline-primary">Create</button>
+                            <button type="submit" class="btn btn-outline-primary">Save</button>
                         </div>
                     </div>
 

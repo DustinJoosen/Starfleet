@@ -36,7 +36,9 @@
             </div>
         @endif
 
-        <a href="/species">Back</a>
+        <a href="/species">Back</a> |
+        <a href="/species/{{ $species->id }}/edit">Edit</a>
+
 
     </div>
 @endsection

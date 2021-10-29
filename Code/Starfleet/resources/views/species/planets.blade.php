@@ -38,7 +38,7 @@
                 </table>
             </div>
         </div>
-        <a href="/species" class="mt-3">Back to List</a>
+        <a href="/species" class="mt-3">Back</a>
 
     </div>
 @endsection

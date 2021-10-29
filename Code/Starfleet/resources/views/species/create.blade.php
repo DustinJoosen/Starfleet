@@ -4,7 +4,7 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <h3 class="text-center">Add Species</h3>
+                <h3 class="text-center">Create Species</h3>
             </div>
             <div class="card-body">
                 <form action="/species/store" method="post">
@@ -77,7 +77,7 @@
 
                     <div class="form-group row mb-0">
                         <div class="col-md-8 offset-md-4">
-                            <button type="submit" class="btn btn-outline-primary">Update</button>
+                            <button type="submit" class="btn btn-outline-primary">Save</button>
                         </div>
                     </div>
                 </form>

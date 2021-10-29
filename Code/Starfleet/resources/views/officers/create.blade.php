@@ -4,7 +4,7 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <h3 class="text-center">Add Officer</h3>
+                <h3 class="text-center">Create Officer</h3>
             </div>
             <div class="card-body">
                 <form action="/officers/store" method="post">

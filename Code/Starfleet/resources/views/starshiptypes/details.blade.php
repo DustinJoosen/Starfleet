@@ -14,7 +14,8 @@
 
         </dl>
 
-        <a href="/starships/types">Back</a>
+        <a href="/starships/types">Back</a> |
+        <a href="/starships/types/{{ $starshiptype->id }}/edit">Edit</a>
 
     </div>
 @endsection
