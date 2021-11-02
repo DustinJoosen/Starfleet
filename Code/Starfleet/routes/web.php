@@ -17,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 
+Route::get('/rank_testing', function(){
+    return 'Hi!';
+})->middleware("rank:captain");
+
 Route::get('/', function () {
     return view('index');
 });

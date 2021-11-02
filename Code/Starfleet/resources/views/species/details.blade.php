@@ -38,9 +38,10 @@
             </div>
         @endif
 
-        <a href="/species">Back</a> |
-        <a href="/species/{{ $species->id }}/edit">Edit</a>
-
+        @can("update", $species)
+            <a href="/species/{{ $species->id }}/edit">Edit</a> |
+        @endcan
+        <a href="/species">Back</a>
 
     </div>
 @endsection

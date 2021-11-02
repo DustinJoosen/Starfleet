@@ -9,13 +9,23 @@ use Illuminate\Http\Request;
 class SpeciesController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware("auth");
+    }
+
     public function index(){
+        $this->authorize("viewAny", Species::class);
+
         return view('species.index',[
             'species' => Species::all()
         ]);
     }
 
     public function planets(Species $species){
+        $this->authorize("view", $species);
+
+        //get all the planets that are not yet attached to the species
         $planets = Planet::all();
         $filtered_planets = [];
 
@@ -32,6 +42,8 @@ class SpeciesController extends Controller
     }
 
     public function store_planet(Request $request, Species $species){
+        $this->authorize("create", Species::class);
+
         $planet_id = $request->input('planet_id') ?? null;
         $planet = Planet::findOrFail($planet_id);
 
@@ -40,16 +52,21 @@ class SpeciesController extends Controller
     }
 
     public function delete_planet(Species $species, Planet $planet){
+        $this->authorize("delete", $species);
+
         $species->planets()->detach($planet);
         return redirect('/species/' . $species->id . '/planets');
     }
 
     public function create(){
+        $this->authorize('create', Species::class);
         return view('species.create');
     }
 
     public function store(Request $request){
-		$data = $request->validate([
+        $this->authorize('create', Species::class);
+
+        $data = $request->validate([
 			'name' => 'required',
 			'is_humanoid' => '',
 			'is_federation' => '',
@@ -70,13 +87,17 @@ class SpeciesController extends Controller
     }
 
     public function edit(Request $request, Species $species){
+        $this->authorize("update", $species);
+
         return view('species.edit', [
             'species' => $species
         ]);
     }
 
     public function update(Request $request, Species $species){
-		$data = $request->validate([
+        $this->authorize("update", $species);
+
+        $data = $request->validate([
 			'name' => 'required',
 			'is_humanoid' => '',
 			'is_federation' => '',
@@ -95,12 +116,16 @@ class SpeciesController extends Controller
     }
 
     public function details(Request $request, Species $species){
+        $this->authorize("view", $species);
+
         return view('species.details', [
             'species' => $species
         ]);
     }
 
     public function delete(Request $request, Species $species){
+        $this->authorize("delete", $species);
+
         $species->delete();
         return redirect('/species');
     }

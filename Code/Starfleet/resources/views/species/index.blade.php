@@ -3,7 +3,10 @@
 @section('content')
     <div class="container">
         <h3>Species</h3>
-        <a href="/species/create">Add species</a>
+
+        @can("create", App\Models\Species::class)
+            <a href="/species/create">Add species</a>
+        @endcan
 
         <table class="table mt-4">
             <tr>
@@ -19,10 +22,14 @@
 					<td>{{ $species->is_federation == 0 ? "No" : "Yes" }}</td>
 
                     <td>
-                        <a href="/species/{{ $species->id }}/edit">Edit</a> |
+                        @can("update", $species)
+                            <a href="/species/{{ $species->id }}/edit">Edit</a> |
+                        @endcan
                         <a href="/species/{{ $species->id }}/planets">Planets</a> |
-                        <a href="/species/{{ $species->id }}/details">Details</a> |
-                        <a href="/species/{{ $species->id }}/delete">Delete</a>
+                        <a href="/species/{{ $species->id }}/details">Details</a>
+                        @can("delete", $species)
+                            | <a href="/species/{{ $species->id }}/delete">Delete</a>
+                        @endcan
                     </td>
                 </tr>
             @endforeach
