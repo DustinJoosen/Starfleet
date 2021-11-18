@@ -34,18 +34,24 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a href="/species" class="nav-link">Species</a>
-                        </li>
+                        @can("viewAny", App\Models\Species::class)
+                            <li class="nav-item">
+                                <a href="/species" class="nav-link">Species</a>
+                            </li>
+                        @endcan
                         <li class="nav-item">
                             <a href="/planets" class="nav-link">Planets</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="/officers" class="nav-link">Officers</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/starships" class="nav-link">Starships</a>
-                        </li>
+                        @can("create", App\Models\Officer::class)
+                            <li class="nav-item">
+                                <a href="/officers" class="nav-link">Officers</a>
+                            </li>
+                        @endcan
+                        @can("create", App\Models\Starship::class)
+                            <li class="nav-item">
+                                <a href="/starships" class="nav-link">Starships</a>
+                            </li>
+                        @endcan
                     </ul>
 
                     <!-- Right Side Of Navbar -->

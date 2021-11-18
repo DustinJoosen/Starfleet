@@ -16,11 +16,15 @@ class StarshipTypesController extends Controller
     }
 
     public function create(){
+        $this->authorize("create", StarshipType::class);
+
         return view('starshiptypes.create');
     }
 
     public function store(Request $request){
-		$data = $request->validate([
+        $this->authorize("create", StarshipType::class);
+
+        $data = $request->validate([
 			'name' => 'required',
 			'image_name' => ['image'],
 		]);
@@ -44,13 +48,17 @@ class StarshipTypesController extends Controller
     }
 
     public function edit(Request $request, StarshipType $starshiptype){
+        $this->authorize("update", $starshiptype);
+
         return view('starshiptypes.edit', [
             'starshiptype' => $starshiptype
         ]);
     }
 
     public function update(Request $request, StarshipType $starshiptype){
-		$data = $request->validate([
+        $this->authorize("update", $starshiptype);
+
+        $data = $request->validate([
 			'name' => 'required',
 			'image_name' => ['image'],
 		]);
@@ -78,6 +86,8 @@ class StarshipTypesController extends Controller
     }
 
     public function delete(Request $request, StarshipType $starshiptype){
+        $this->authorize("delete", $starshiptype);
+
         $starshiptype->delete_image();
         $starshiptype->delete();
         return redirect('/starships/types');

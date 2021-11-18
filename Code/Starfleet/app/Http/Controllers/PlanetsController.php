@@ -9,8 +9,13 @@ use Illuminate\Http\Request;
 
 class PlanetsController extends Controller
 {
+    public function __construct(){
+        $this->middleware("auth");
+    }
 
     public function index(){
+//        $this->authorize("viewAny", Planet::class);
+
         return view('planets.index',[
             'planets' => Planet::all()
         ]);
@@ -47,6 +52,8 @@ class PlanetsController extends Controller
     }
 
     public function create(){
+        $this->authorize("create", Planet::class);
+
         return view('planets.create',[
             'planet_classes' => PlanetClass::all()
         ]);

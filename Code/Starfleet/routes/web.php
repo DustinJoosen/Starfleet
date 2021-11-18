@@ -16,11 +16,6 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-
-Route::get('/rank_testing', function(){
-    return 'Hi!';
-})->middleware("rank:captain");
-
 Route::get('/', function () {
     return view('index');
 });
@@ -36,16 +31,6 @@ Route::prefix('/planets')->group(function(){
     Route::get('/{planet}/edit', [App\Http\Controllers\PlanetsController::class, 'edit']);
     Route::put('/{planet}/update', [App\Http\Controllers\PlanetsController::class, 'update']);
     Route::get("/{planet}/delete", [App\Http\Controllers\PlanetsController::class, 'delete']);
-});
-
-Route::prefix('/starships/types')->group(function(){
-    Route::get('/', [App\Http\Controllers\StarshipTypesController::class, 'index']);
-    Route::get('/create', [App\Http\Controllers\StarshipTypesController::class, 'create']);
-    Route::post('/store', [App\Http\Controllers\StarshipTypesController::class, 'store']);
-    Route::get('/{starshiptype}/details', [App\Http\Controllers\StarshipTypesController::class, 'details']);
-    Route::get('/{starshiptype}/edit', [App\Http\Controllers\StarshipTypesController::class, 'edit']);
-    Route::put('/{starshiptype}/update', [App\Http\Controllers\StarshipTypesController::class, 'update']);
-    Route::get("/{starshiptype}/delete", [App\Http\Controllers\StarshipTypesController::class, 'delete']);
 });
 
 Route::prefix('/species')->group(function(){
@@ -80,3 +65,15 @@ Route::prefix('/starships')->group(function(){
     Route::put('/{starship}/update', [App\Http\Controllers\StarshipsController::class, 'update']);
     Route::get("/{starship}/delete", [App\Http\Controllers\StarshipsController::class, 'delete']);
 });
+
+
+Route::prefix('/starships/types')->group(function(){
+    Route::get('/', [App\Http\Controllers\StarshipTypesController::class, 'index']);
+    Route::get('/create', [App\Http\Controllers\StarshipTypesController::class, 'create']);
+    Route::post('/store', [App\Http\Controllers\StarshipTypesController::class, 'store']);
+    Route::get('/{starshiptype}/details', [App\Http\Controllers\StarshipTypesController::class, 'details']);
+    Route::get('/{starshiptype}/edit', [App\Http\Controllers\StarshipTypesController::class, 'edit']);
+    Route::put('/{starshiptype}/update', [App\Http\Controllers\StarshipTypesController::class, 'update']);
+    Route::get("/{starshiptype}/delete", [App\Http\Controllers\StarshipTypesController::class, 'delete']);
+});
+

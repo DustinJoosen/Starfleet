@@ -18,6 +18,8 @@ class StarshipsController extends Controller
     }
 
     public function create(){
+        $this->authorize("create", Starship::class);
+
         return view('starships.create', [
             'ship_types' => StarshipType::all(),
             'officers' => Officer::all()
@@ -25,7 +27,9 @@ class StarshipsController extends Controller
     }
 
     public function store(Request $request){
-		$data = $request->validate([
+        $this->authorize("create", Starship::class);
+
+        $data = $request->validate([
 			'starshiptype_id' => 'required',
 			'name' => 'required',
 			'prefix' => '',
@@ -62,6 +66,8 @@ class StarshipsController extends Controller
     }
 
     public function edit(Request $request, Starship $starship){
+        $this->authorize("update", $starship);
+
         return view('starships.edit', [
             'starship' => $starship,
             'ship_types' => StarshipType::all(),
@@ -70,6 +76,8 @@ class StarshipsController extends Controller
     }
 
     public function update(Request $request, Starship $starship){
+        $this->authorize("update", $starship);
+
         $data = $request->validate([
             'starshiptype_id' => 'required',
             'name' => 'required',
@@ -116,6 +124,8 @@ class StarshipsController extends Controller
     }
 
     public function delete(Request $request, Starship $starship){
+        $this->authorize("delete", $starship);
+
         $starship->delete();
         $starship->crew()->delete();
         return redirect('/starships');

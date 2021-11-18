@@ -19,6 +19,8 @@ class OfficersController extends Controller
     }
 
     public function create(){
+        $this->authorize("create", Officer::class);
+
         return view('officers.create',[
             'species' => Species::all(),
             'planets' => Planet::all(),
@@ -28,6 +30,8 @@ class OfficersController extends Controller
     }
 
     public function store(Request $request){
+        $this->authorize("create", Officer::class);
+
 		$data = $request->validate([
 			'name' => 'required',
 			'species_id' => 'required',
@@ -47,6 +51,8 @@ class OfficersController extends Controller
     }
 
     public function edit(Request $request, Officer $officer){
+        $this->authorize("update", $officer);
+
         return view('officers.edit', [
             'officer' => $officer,
             'species' => Species::all(),
@@ -57,6 +63,8 @@ class OfficersController extends Controller
     }
 
     public function update(Request $request, Officer $officer){
+        $this->authorize("update", $officer);
+
         $data = $request->validate([
             'name' => 'required',
             'species_id' => 'required',
@@ -88,6 +96,8 @@ class OfficersController extends Controller
     }
 
     public function delete(Request $request, Officer $officer){
+        $this->authorize("delete", $officer);
+
         $officer->delete();
         return redirect('/officers');
     }
